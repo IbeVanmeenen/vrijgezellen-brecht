@@ -14,8 +14,28 @@
 <body>
     <main role="main" class="container">
         <div id="clock" class="clock">
-            <h1 class="clock__title glitch-text" data-txt="Volgende opdracht in:">Volgende opdracht in:</h1>
-            <div id="clock-time" data-txt="" class="clock__time glitch-text"></div>
+            <h1 class="clock__title glitch-text" data-txt="Volgende opdracht in:">Volgende opdracht in</h1>
+            <div class="clock__time">
+                <span class="clock__time__el">
+                    <span id="clock-days" class="glitch-text clock__time__el__number" data-txt="0">0</span>
+                    <span class="clock__time__el__txt">Days</span>
+                </span>
+
+                <span class="clock__time__el">
+                    <span id="clock-hours" class="glitch-text clock__time__el__number" data-txt="0">0</span>
+                    <span class="clock__time__el__txt">Hours</span>
+                </span>
+
+                <span class="clock__time__el">
+                    <span id="clock-min" class="glitch-text clock__time__el__number" data-txt="0">0</span>
+                    <span class="clock__time__el__txt">Min</span>
+                </span>
+
+                <span class="clock__time__el">
+                    <span id="clock-sec" class="glitch-text clock__time__el__number" data-txt="0">0</span>
+                    <span class="clock__time__el__txt">Sec</span>
+                </span>
+            </div>
         </div>
 
         <div id="assignment-1" class="assignment">
@@ -33,6 +53,13 @@
         <div id="assignment-4" class="assignment">
 
         </div>
+
+        <figure class="bg-video">
+            <video autoplay loop class="bg-video__vid">
+                <source src="dist/video/bg.mp4" type="video/mp4">
+                <source src="dist/video/bg.webm" type="video/webm">
+            </video>
+        </figure>
     </main>
 
     <script src="dist/js/footer.min.js"></script>

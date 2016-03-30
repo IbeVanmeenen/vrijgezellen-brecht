@@ -1,8 +1,7 @@
 .clock {
     display: none;
 
-    font-family: monospace;
-    color: $white;
+    color: $black;
     text-align: center;
 }
 
@@ -13,16 +12,51 @@
 .clock__title {
     margin: 4rem 0 1rem;
 
-    font-size: .8rem;
+    font-size: calc(0.2rem + 0.5vw);
+    font-family: "Times New Roman", Georgia, Serif;
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: .2em;
-    opacity: .4;
 }
 
 .clock__time {
-    font-weight: bold;
+    display: flex;
+    margin: 4rem auto;
+    width: 90%;
+
+    padding: 2em 0;
+
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.clock__time__el {
+    flex: 1;
+    padding: 2em 0;
+
+    border-left: 1px solid rgba(0, 0, 0, .2);
+    margin-left: -1px;
+
+    text-align: center;
+
+    &:first-child {
+        border-left: 0;
+    }
+}
+
+.clock__time__el__txt {
+    font-family: "Times New Roman", Georgia, Serif;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: calc(0.4rem + 0.5vw);
+}
+
+.clock__time__el__number {
+    display: block;
+    margin: 0;
+
     font-size: calc(4vw + 4vh + 2vmin);
+    line-height: 1;
+    font-weight: bold;
 }
 
 
@@ -35,7 +69,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        background: $black;
+        background: transparent;
         clip: rect(0, 0, 0, 0);
     }
     &:after {
