@@ -11,6 +11,8 @@ brecht.clock = function(undefined) {
     var deadline1, deadline2, deadline3, deadline4,
         deadline1End, deadline2End, deadline3End, deadline4End, deadlineBeftjelor;
 
+    var timeinterval;
+
 
     // Get Time
     var getTimeRemaining = function(endtime) {
@@ -30,32 +32,36 @@ brecht.clock = function(undefined) {
     };
 
 
+    // Update clock
+    var updateClock = function(endtime) {
+        var t = getTimeRemaining(endtime),
+            hours = ('0' + t.hours).slice(-2),
+            min = ('0' + t.minutes).slice(-2),
+            sec = ('0' + t.seconds).slice(-2);
+
+        daysEl.innerHTML = t.days;
+        daysEl.dataset.txt = t.days;
+        hoursEl.innerHTML = hours;
+        hoursEl.dataset.txt = hours;
+        minEl.innerHTML = min;
+        minEl.dataset.txt = min;
+        secEl.innerHTML = sec;
+        secEl.dataset.txt = sec;
+
+        if (t.total <= 0) {
+            clearInterval(timeinterval);
+        }
+    };
+
+
     // Init Clock
     var initializeClock = function(endtime) {
         document.getElementById('clock').classList.add('clock--show');
 
-        var updateClock = function() {
-            var t = getTimeRemaining(endtime),
-                hours = ('0' + t.hours).slice(-2),
-                min = ('0' + t.minutes).slice(-2),
-                sec = ('0' + t.seconds).slice(-2);
-
-            daysEl.innerHTML = t.days;
-            daysEl.dataset.txt = t.days;
-            hoursEl.innerHTML = hours;
-            hoursEl.dataset.txt = hours;
-            minEl.innerHTML = min;
-            minEl.dataset.txt = min;
-            secEl.innerHTML = sec;
-            secEl.dataset.txt = sec;
-
-            if (t.total <= 0) {
-                clearInterval(timeinterval);
-            }
-        };
-
-        updateClock();
-        var timeinterval = setInterval(updateClock, 1000);
+        updateClock(endtime);
+        var timeinterval = setInterval(function() {
+            updateClock(endtime);
+        }, 1000);
     };
 
 
