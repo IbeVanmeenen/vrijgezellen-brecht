@@ -1,0 +1,71 @@
+.clock {
+    display: none;
+
+    font-family: monospace;
+    color: $white;
+    text-align: center;
+}
+
+.clock--show {
+    display: block;
+}
+
+.clock__title {
+    margin: 4rem 0 1rem;
+
+    font-size: .8rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    opacity: .4;
+}
+
+.clock__time {
+    font-weight: bold;
+    font-size: calc(4vw + 4vh + 2vmin);
+}
+
+
+.glitch-text {
+    position: relative;
+
+    &:before, &:after {
+        content: attr(data-txt);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: $black;
+        clip: rect(0, 0, 0, 0);
+    }
+    &:after {
+        left: 2px;
+        text-shadow: -1px 0 red;
+        animation: glitch-anim-1 2s infinite linear alternate-reverse;
+    }
+    &:before {
+        left: -2px;
+        text-shadow: 2px 0 blue;
+        animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    }
+}
+
+@keyframes glitch-anim-1 {
+    $steps: 10;
+
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+        }
+    }
+}
+
+@keyframes glitch-anim-2 {
+    $steps:20;
+
+    @for $i from 0 through $steps{
+        #{percentage($i*(1/$steps))}{
+            clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+        }
+    }
+}
