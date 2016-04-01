@@ -8,7 +8,8 @@ brecht.app = function(undefined) {
 
     // Init
     var init = function() {
-        brecht.clock();
+        brecht.video();
+        // brecht.clock();
     }();
 };
 

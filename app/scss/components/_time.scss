@@ -1,7 +1,7 @@
 .clock {
     display: none;
 
-    color: $black;
+    color: $white;
     text-align: center;
 }
 
@@ -26,14 +26,14 @@
 
     padding: 2em 0;
 
-    border: 1px solid rgba(0, 0, 0, .2);
+    border: 1px solid rgba(255, 255, 255, .2);
 }
 
 .clock__time__el {
     flex: 1;
     padding: 2em 0;
 
-    border-left: 1px solid rgba(0, 0, 0, .2);
+    border-left: 1px solid rgba(255, 255, 255, .2);
     margin-left: -1px;
 
     text-align: center;
@@ -59,6 +59,68 @@
     font-weight: bold;
 }
 
+.clock__extra-info {
+    z-index: 100;
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 1em 0;
+    text-align: center;
+
+    font-family: "Times New Roman", Georgia, Serif;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: calc(0.4rem + 0.5vw);
+    font-weight: normal;
+
+    opacity: .5;
+}
+
+.clock__play-btn {
+    z-index: 400;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+    display: block;
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 100%;
+    background: transparent;
+    border: 1px solid $white;
+
+    opacity: .3;
+
+    transform: scale(1) translate3d(0, 0, 0);;
+    transform-origin: center;
+    transition: transform .3s ease, opacity .3s ease;
+
+    &:active, &:focus {
+        outline: 0;
+    }
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+.clock__play-btn__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+    width: .5rem;
+    height: auto;
+
+    transform: translate(-35%, -50%);
+}
 
 .glitch-text {
     position: relative;
