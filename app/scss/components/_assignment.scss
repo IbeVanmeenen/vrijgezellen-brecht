@@ -59,23 +59,6 @@
     display: block;
     width: 100%;
     height: auto;
-
-    @media (min-width: 40em) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-
-        width: auto;
-        height: auto;
-
-        max-height: none;
-        max-width: none;
-
-        min-height: 100%;
-        min-width: 100%;
-
-        transform: translate(-50%, -50%);
-    }
 }
 
 .assignment__section__title {
